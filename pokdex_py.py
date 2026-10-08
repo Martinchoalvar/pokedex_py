@@ -19,7 +19,7 @@ def proyect_pokemon():
             elif x == 3 :
                  bag()
             elif x == 4:
-                 register_pokemon()
+                 registerpokemon()
             elif x == 5:
                  close()
                  break
@@ -29,6 +29,17 @@ def proyect_pokemon():
             print("\n ERROR __ the number entered is invalid type ! \n ")
 
 
+def searchPokemon():
+    pass
+
+def types():
+    pass
+
+def bag():
+    pass
+
+def registerPokemon():
+    pass
 
 def close ():
     print("\n ! thank you for visiting us, come back soon !")
