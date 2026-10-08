@@ -42,7 +42,7 @@ def proyect_pokemon():
             elif x == 3 :
                  bag()
             elif x == 4:
-                 registerpokemon()
+                 registerPokemon()
             elif x == 5:
                  close()
                  break
@@ -63,7 +63,7 @@ def searchPokemon():
             encontrado = pokedex[id_pokemon]
     else: 
         for dates in pokedex.values():
-            if dates["nombre"].lower() == pokemon.lower():
+            if dates["name"].lower() == pokemon.lower():
                 encontrado = dates 
                 break
 
@@ -75,8 +75,23 @@ def searchPokemon():
 
     back()
 
-def types():
-    pass
+    # aca filtramos los pokemons segun su elemento
+def types(): 
+    type_search = input("\n what type do you want to see : fire -- water -- electric -- rock -- poison ? \n ").strip()
+    found = []
+
+    for dates in pokedex.values():
+        if dates["type"].lower() == type_search.lower():
+            found.append(dates)
+    if found:    
+        print( f" \n These are the Pokemon of the type {type_search} \n "  )
+        for pokemon in found:
+            print(f"\n _ {pokemon} \n ")    
+    else:
+        print("\n no pokemons found for this type \n ")
+
+
+    back()
 
 def bag():
     print("\n ----  bag  ---- "\
@@ -88,7 +103,24 @@ def bag():
     back()
 
 def registerPokemon():
-    pass
+
+    try:    
+        id_Pokemon = int(input ("\n What is the ID of the Pokemon you want to register ? \n "))
+    
+        if id_Pokemon in pokedex:
+            print ("\n The pokemon has already been registered ! \n")
+    
+        else:
+            name = input("\n enter the name : \n")
+            type_ = input("\n enter the type : \n")
+            level = input("\n enter the level : \n")
+    
+            pokedex[id_Pokemon] = {"name": name , "type" : type_ , "level" : level }
+
+    except ValueError:
+        print("\n invalid id \n ")
+
+    back()
 
 def close ():
     print("\n ! thank you for visiting us, come back soon !")
